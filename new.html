@@ -127,9 +127,44 @@
   <!-- 按鈕列 -->
   <div class="btn-row">
     <button class="btn cancel-btn" onclick="location.href='index.html'">取消</button>
-    <button class="btn save-btn" onclick="location.href='index.html'">儲存</button>
+    <button class="btn save-btn" onclick="saveCase()">儲存</button>
   </div>
+
+<script>
+function saveCase() {
+  const name = document.querySelectorAll('input')[0].value;
+  const phone = document.querySelectorAll('input')[1].value;
+  const address = document.querySelectorAll('input')[2].value;
+
+  const quote = document.querySelectorAll('select')[0].value;
+  const progress = document.querySelectorAll('select')[1].value;
+  const status = document.querySelectorAll('select')[2].value;
+  const checkout = document.querySelectorAll('select')[3].value;
+
+  const notes = document.querySelector('textarea').value;
+
+  const caseObj = {
+    id: Date.now().toString(),
+    name,
+    phone,
+    address,
+    quote,
+    progress,
+    status,
+    checkout,
+    notes
+  };
+
+  const list = JSON.parse(localStorage.getItem('cases') || '[]');
+  list.push(caseObj);
+  localStorage.setItem('cases', JSON.stringify(list));
+
+  location.href = 'index.html';
+}
+</script>
+
 
 </body>
 </html>
+
 
