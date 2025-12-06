@@ -140,11 +140,62 @@
   <!-- 按鈕 -->
   <div class="btn-row">
     <button class="btn cancel-btn">返回</button>
-    <button class="btn save-btn">儲存變更</button>
+    <button class="btn save-btn" onclick="saveEdit()">儲存變更</button>
   </div>
 
-  <button class="delete-btn" onclick="location.href='index.html'">刪除此案件</button>
+  <button class="delete-btn" onclick="deleteThis()">刪除此案件</button>
+
+<script>
+function getParam(name) {
+  return new URL(location.href).searchParams.get(name);
+}
+
+let caseId = getParam('id');
+let list = JSON.parse(localStorage.getItem('cases') || '[]');
+let item = list.find(c => c.id === caseId);
+
+function loadCase() {
+  if (!item) return;
+
+  document.querySelectorAll('input')[0].value = item.name;
+  document.querySelectorAll('input')[1].value = item.phone;
+  document.querySelectorAll('input')[2].value = item.address;
+
+  document.querySelectorAll('select')[0].value = item.quote;
+  document.querySelectorAll('select')[1].value = item.progress;
+  document.querySelectorAll('select')[2].value = item.status;
+  document.querySelectorAll('select')[3].value = item.checkout;
+
+  document.querySelector('textarea').value = item.notes;
+}
+
+function saveEdit() {
+  item.name = document.querySelectorAll('input')[0].value;
+  item.phone = document.querySelectorAll('input')[1].value;
+  item.address = document.querySelectorAll('input')[2].value;
+
+  item.quote = document.querySelectorAll('select')[0].value;
+  item.progress = document.querySelectorAll('select')[1].value;
+  item.status = document.querySelectorAll('select')[2].value;
+  item.checkout = document.querySelectorAll('select')[3].value;
+
+  item.notes = document.querySelector('textarea').value;
+
+  localStorage.setItem('cases', JSON.stringify(list));
+  location.href = 'index.html';
+}
+
+function deleteThis() {
+  list = list.filter(c => c.id !== caseId);
+  localStorage.setItem('cases', JSON.stringify(list));
+  location.href = 'index.html';
+}
+
+window.onload = loadCase;
+</script>
+
 
 </body>
 </html>
+
 
