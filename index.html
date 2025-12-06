@@ -79,7 +79,10 @@
 <body>
 
   <div class="top-bar">
-    <input type="text" placeholder="搜尋客戶 / 電話 / 地址 / 備註">
+    <input 
+      type="text" 
+      placeholder="搜尋客戶 / 電話 / 地址 / 備註"
+      oninput="filterCases(this.value)">
     <button class="add" onclick="location.href='new.html'">＋新增</button>
   </div>
 
@@ -116,6 +119,43 @@ function loadCases() {
   });
 }
 
+function filterCases(keyword) {
+  const list = JSON.parse(localStorage.getItem('cases') || '[]');
+  const container = document.getElementById('case-list');
+  container.innerHTML = '';
+
+  const lower = keyword.toLowerCase();
+
+  list
+    .filter(c =>
+      c.name.toLowerCase().includes(lower) ||
+      c.phone.toLowerCase().includes(lower) ||
+      c.address.toLowerCase().includes(lower) ||
+      c.notes.toLowerCase().includes(lower)
+    )
+    .forEach(c => {
+      const div = document.createElement('div');
+      div.className = 'card';
+      div.innerHTML = `
+        <div class="row"><span class="label">客戶：</span>${c.name}（${c.phone}）</div>
+        <div class="row"><span class="label">地址：</span>${c.address}</div>
+        <div class="row"><span class="label">報價：</span>${c.quote}</div>
+        <div class="row"><span class="label">進度：</span>${c.progress}</div>
+        <div class="row"><span class="label">狀態：</span>${c.status}</div>
+        <div class="row"><span class="label">結帳：</span>${c.checkout}</div>
+
+        <div class="note">${c.notes.replace(/\n/g, '<br>')}</div>
+
+        <div class="actions">
+          <button class="btn detail-btn" onclick="location.href='edit.html?id=${c.id}'">詳細</button>
+          <button class="btn delete-btn" onclick="deleteCase('${c.id}')">刪除</button>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+}
+
+
 function deleteCase(id) {
   let list = JSON.parse(localStorage.getItem('cases') || '[]');
   list = list.filter(c => c.id !== id);
@@ -128,5 +168,6 @@ window.onload = loadCases;
 
 </body>
 </html>
+
 
 
