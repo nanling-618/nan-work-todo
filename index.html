@@ -81,12 +81,19 @@
     /*--------------------------------------------*/
 
     /* 隔行變色 */
+    /* 奶油布丁色（奇數卡） */
     .card:nth-child(odd) {
-      background: #ffffff;
+      background: #FAF7F2;
     }
+    /* 奶茶拿鐵色（偶數卡） */
     .card:nth-child(even) {
-      background: #f5f5f5;
+      background: #F0E8DE;
     }
+    /* 卡片樣式（便條紙張） */
+    .card {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
   
     /* 摺疊內容控制 */
     .card-content {
@@ -231,6 +238,7 @@ window.onload = loadCases;
 
 </body>
 </html>
+
 
 
 
