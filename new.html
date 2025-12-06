@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>新增案件</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #f7f7f7;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .section-title {
+      font-weight: bold;
+      color: #333;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+    .field {
+      margin-bottom: 12px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 80px;
+      resize: vertical; /* 可自由拉高 */
+    }
+    .btn-row {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .btn {
+      flex: 1;
+      padding: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .cancel-btn {
+      margin-right: 8px;
+      background: #ccc;
+      color: #333;
+    }
+    .save-btn {
+      margin-left: 8px;
+      background: #4a90e2;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📌 新增案件</h2>
+
+  <!-- 客戶資料 -->
+  <div class="section-title">【客戶資料】</div>
+  <div class="field">
+    <input type="text" placeholder="客戶姓名">
+  </div>
+  <div class="field">
+    <input type="text" placeholder="電話（09xxxxxxxx）">
+  </div>
+  <div class="field">
+    <input type="text" placeholder="工程地址">
+  </div>
+
+  <!-- 報價 -->
+  <div class="section-title">【報價】</div>
+  <div class="field">
+    <select>
+      <option>未報價</option>
+      <option>已報價（等回覆）</option>
+      <option>客戶同意（要做）</option>
+      <option>客戶拒絕</option>
+    </select>
+  </div>
+
+  <!-- 進度 -->
+  <div class="section-title">【進度】</div>
+  <div class="field">
+    <select>
+      <option>丈量</option>
+      <option>選樣式</option>
+      <option>訂貨</option>
+      <option>安裝</option>
+    </select>
+  </div>
+
+  <!-- 狀態 -->
+  <div class="section-title">【狀態】</div>
+  <div class="field">
+    <select>
+      <option>可進行</option>
+      <option>等通知</option>
+      <option>已完成</option>
+    </select>
+  </div>
+
+  <!-- 結帳 -->
+  <div the "section-title">【結帳】</div>
+  <div class="field">
+    <select>
+      <option>可結帳</option>
+      <option>有疑問</option>
+      <option>已完成</option>
+    </select>
+  </div>
+
+  <!-- 備註 -->
+  <div class="section-title">【備註】</div>
+  <div class="field">
+    <textarea placeholder="例如：特殊五金、修紗窗、提前通知…"></textarea>
+  </div>
+
+  <!-- 按鈕列 -->
+  <div class="btn-row">
+    <button class="btn cancel-btn">取消</button>
+    <button class="btn save-btn">儲存</button>
+  </div>
+
+</body>
+</html>

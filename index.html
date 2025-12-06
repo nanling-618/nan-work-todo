@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Work Todo App (Draft v2)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 16px;
+      background: #f7f7f7;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .top-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button.add {
+      padding: 8px 12px;
+      border: none;
+      background: #4a90e2;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .card {
+      background: white;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 14px;
+    }
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+    .row {
+      margin: 4px 0;
+    }
+    .actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+    }
+    .btn {
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .detail-btn {
+      background: #6cba72;
+      color: white;
+    }
+    .delete-btn {
+      background: #d9534f;
+      color: white;
+    }
+    .note {
+      margin-top: 6px;
+      padding: 8px;
+      background: #f0f0f0;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: pre-line; /* 多行換行 */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <input type="text" placeholder="搜尋客戶 / 電話 / 地址 / 備註">
+    <button class="add">＋新增</button>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="label">客戶：</span>張大同（0930-xxxxxx）</div>
+    <div class="row"><span class="label">地址：</span>台中市神岡區xx路xx號</div>
+    <div class="row"><span class="label">報價：</span>已報價（等回覆）</div>
+    <div class="row"><span class="label">進度：</span>丈量</div>
+    <div class="row"><span class="label">狀態：</span>可進行</div>
+    <div class="row"><span class="label">結帳：</span>可結帳</div>
+
+    <div class="note">
+特殊五金  
+修紗窗  
+到場要提醒師父帶梯子
+    </div>
+
+    <div class="actions">
+      <button class="btn detail-btn">詳細</button>
+      <button class="btn delete-btn">刪除</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="label">客戶：</span>王小姐（0978-xxxxxx）</div>
+    <div class="row"><span class="label">地址：</span>台中市大雅區xxx巷</div>
+    <div class="row"><span class="label">報價：</span>未報價</div>
+    <div class="row"><span class="label">進度：</span>訂貨</div>
+    <div class="row"><span class="label">狀態：</span>等通知</div>
+    <div class="row"><span class="label">結帳：</span>有疑問</div>
+
+    <div class="note">
+要聯絡客戶確認到貨時間
+    </div>
+
+    <div class="actions">
+      <button class="btn detail-btn">詳細</button>
+      <button class="btn delete-btn">刪除</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row"><span class="label">客戶：</span>林先生（0912-xxxxxx）</div>
+    <div class="row"><span class="label">地址：</span>潭子區xxx路</div>
+    <div class="row"><span class="label">報價：</span>客戶同意（要做）</div>
+    <div class="row"><span class="label">進度：</span>安裝</div>
+    <div class="row"><span class="label">狀態：</span>可進行</div>
+    <div class="row"><span class="label">結帳：</span>已完成</div>
+
+    <div class="note">
+門框已完工  
+門片丈量週五  
+現場有狗要注意
+    </div>
+
+    <div class="actions">
+      <button class="btn detail-btn">詳細</button>
+      <button class="btn delete-btn">刪除</button>
+    </div>
+  </div>
+
+</body>
+</html>
