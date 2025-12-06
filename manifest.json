@@ -1,0 +1,20 @@
+{
+  "name": "奶茶記事本本",
+  "short_name": "金記事",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#F0E8DE",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
